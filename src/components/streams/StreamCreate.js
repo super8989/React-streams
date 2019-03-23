@@ -14,11 +14,23 @@ class StreamCreate extends React.Component {
   //({...formProps.input} take all key value pairs and object from .input and add them as props to input element)
   // (<input onChange={formProps.input.onChange} value={formProps.input.value} />)
 
+  onSubmit(formValues) {
+    console.log(formValues);
+  }
+
   render() {
     return (
-      <form className="ui form">
+      <form
+        onSubmit={this.props.handleSubmit(this.onSubmit)}
+        className="ui form"
+      >
         <Field name="title" component={this.renderInput} label="Enter Title" />
-        <Field name="description" component={this.renderInput} label="Enter Description" />
+        <Field
+          name="description"
+          component={this.renderInput}
+          label="Enter Description"
+        />
+        <button className="ui button primary">Submit</button>
       </form>
     );
   }
