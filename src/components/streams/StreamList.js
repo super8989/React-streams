@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { fetchStreams } from "../../actions";
 
 class StreamList extends React.Component {
@@ -12,8 +12,13 @@ class StreamList extends React.Component {
     if (stream.userId === this.props.currentUserId) {
       return (
         <div className="right floated content">
-          <Link to={`/streams/edit/${stream.id}`} className="ui button primary">Edit</Link>
-          <Link to={`/streams/delete/${stream.id}`} className="ui button negative">
+          <Link to={`/streams/edit/${stream.id}`} className="ui button primary">
+            Edit
+          </Link>
+          <Link
+            to={`/streams/delete/${stream.id}`}
+            className="ui button negative"
+          >
             Delete
           </Link>
         </div>
@@ -39,7 +44,7 @@ class StreamList extends React.Component {
   renderCreate() {
     if (this.props.isSignedIn) {
       return (
-        <div style={{ textAlign: 'right' }}>
+        <div style={{ textAlign: "right" }}>
           <Link to="/streams/new" className="ui button primary">
             Create Stream
           </Link>
